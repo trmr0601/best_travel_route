@@ -12,6 +12,8 @@ RSpec.describe Feedback, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:attraction) }
+
     end
 
     describe "Validations" do

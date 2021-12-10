@@ -6,6 +6,10 @@ class Attraction < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :feedback,
+             :through => :routes,
+             :source => :feedbacks
+
   # Validations
 
   # Scopes

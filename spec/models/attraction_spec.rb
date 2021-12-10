@@ -10,6 +10,8 @@ RSpec.describe Attraction, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:feedback) }
+
     end
 
     describe "Validations" do

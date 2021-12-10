@@ -9,6 +9,10 @@ class Feedback < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :attraction,
+             :through => :routes,
+             :source => :attractions
+
   # Validations
 
   # Scopes
