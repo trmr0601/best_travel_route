@@ -32,7 +32,11 @@
 
       <dt>Routes</dt>
       <!-- Display routes_id start -->
-      <dd><%= attraction.routes_id %></dd>
+      <dd>
+        <% if @attraction.routes.present? %>
+          <%= link_to attraction.routes, attraction.routes %>
+        <% end %>
+      </dd>
       <!-- Display routes_id end -->
 
     </dl>

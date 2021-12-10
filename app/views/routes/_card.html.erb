@@ -22,7 +22,11 @@
 
       <dt>Transportations</dt>
       <!-- Display transportations_id start -->
-      <dd><%= route.transportations_id %></dd>
+      <dd>
+        <% if @route.transportations.present? %>
+          <%= link_to route.transportations, route.transportations %>
+        <% end %>
+      </dd>
       <!-- Display transportations_id end -->
 
     </dl>

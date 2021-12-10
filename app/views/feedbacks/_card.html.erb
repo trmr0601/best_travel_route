@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Routes</dt>
       <!-- Display routes_id start -->
-      <dd><%= feedback.routes_id %></dd>
+      <dd>
+        <% if @feedback.routes.present? %>
+          <%= link_to feedback.routes, feedback.routes %>
+        <% end %>
+      </dd>
       <!-- Display routes_id end -->
 
       <dt>Safty rating</dt>
@@ -32,7 +36,11 @@
 
       <dt>Users</dt>
       <!-- Display users_id start -->
-      <dd><%= feedback.users_id %></dd>
+      <dd>
+        <% if @feedback.users.present? %>
+          <%= link_to feedback.users, feedback.users %>
+        <% end %>
+      </dd>
       <!-- Display users_id end -->
 
     </dl>
