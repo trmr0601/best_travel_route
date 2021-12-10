@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @feedbacks, partial: "list_item", as: :feedback %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @feedbacks, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

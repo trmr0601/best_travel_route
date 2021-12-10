@@ -3,7 +3,7 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks
   def index
-    @feedbacks = Feedback.all
+    @feedbacks = Feedback.page(params[:page]).per(10)
   end
 
   # GET /feedbacks/1

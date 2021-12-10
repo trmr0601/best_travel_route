@@ -3,7 +3,7 @@ class TransportationsController < ApplicationController
 
   # GET /transportations
   def index
-    @transportations = Transportation.all
+    @transportations = Transportation.page(params[:page]).per(10)
   end
 
   # GET /transportations/1
