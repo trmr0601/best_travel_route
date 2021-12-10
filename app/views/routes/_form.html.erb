@@ -94,7 +94,7 @@
 
     <%= f.label :transportations_id %>
     <!-- Input for transportations_id start -->
-    <%= f.number_field :transportations_id, class: transportation_class, placeholder: "Enter transportation" %>
+    <%= f.collection_select :transportations_id, Transportation.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for transportations_id end -->
     <% if transportation_was_invalid %>
       <% route.errors.full_messages_for(:transportation).each do |message| %>
