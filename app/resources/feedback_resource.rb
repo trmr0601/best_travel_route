@@ -11,6 +11,9 @@ class FeedbackResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :routes,
+             resource: RouteResource
+
   belongs_to :users,
              resource: UserResource
 
