@@ -1,6 +1,10 @@
 class Route < ApplicationRecord
   # Direct associations
 
+  has_many   :feedbacks,
+             :foreign_key => "routes_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
