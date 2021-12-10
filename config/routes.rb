@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transportations
   resources :attractions
   resources :feedbacks
   resources :routes
