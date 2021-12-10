@@ -8,6 +8,8 @@ class RoutesController < ApplicationController
 
   # GET /routes/1
   def show
+    @attraction = Attraction.new
+    @feedback = Feedback.new
   end
 
   # GET /routes/new
@@ -24,7 +26,12 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
 
     if @route.save
-      redirect_to @route, notice: 'Route was successfully created.'
+      message = 'Route was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @route, notice: message
+      end
     else
       render :new
     end

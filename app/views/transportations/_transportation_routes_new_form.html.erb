@@ -1,0 +1,42 @@
+<!-- Form route start -->
+<%= form_with(model: @route, local: true) do |f| %>
+<!-- Form route end -->
+
+  <!-- Label and input for start_point start -->
+  <div class="form-group">
+    <%= f.label :start_point %>
+
+    <!-- Input for start_point start -->
+    <%= f.text_field :start_point, class: "form-control" %>
+    <!-- Input for start_point end -->
+  </div>
+  <!-- Label and input for start_point end -->
+
+  <!-- Label and input for end_point start -->
+  <div class="form-group">
+    <%= f.label :end_point %>
+
+    <!-- Input for end_point start -->
+    <%= f.text_field :end_point, class: "form-control" %>
+    <!-- Input for end_point end -->
+  </div>
+  <!-- Label and input for end_point end -->
+
+  <!-- Label and input for distance start -->
+  <div class="form-group">
+    <%= f.label :distance %>
+
+    <!-- Input for distance start -->
+    <%= f.text_field :distance, class: "form-control" %>
+    <!-- Input for distance end -->
+  </div>
+  <!-- Label and input for distance end -->
+
+  <!-- Label and input for transportations_id start -->
+  <!-- Input for transportations_id start -->
+  <%= f.hidden_field :transportations_id, value: @transportation.id %>
+  <!-- Input for transportations_id end -->
+  <!-- Label and input for transportations_id end -->
+
+  <%= f.submit "Create route", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

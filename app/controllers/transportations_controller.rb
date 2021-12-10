@@ -8,6 +8,7 @@ class TransportationsController < ApplicationController
 
   # GET /transportations/1
   def show
+    @route = Route.new
   end
 
   # GET /transportations/new
