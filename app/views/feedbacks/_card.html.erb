@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Feedback #<%= feedback.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Routes</dt>
+      <!-- Display routes_id start -->
+      <dd><%= feedback.routes_id %></dd>
+      <!-- Display routes_id end -->
+
+      <dt>Safty rating</dt>
+      <!-- Display safty_rating start -->
+      <dd><%= feedback.safty_rating %></dd>
+      <!-- Display safty_rating end -->
+
+      <dt>Overall experience rating</dt>
+      <!-- Display overall_experience_rating start -->
+      <dd><%= feedback.overall_experience_rating %></dd>
+      <!-- Display overall_experience_rating end -->
+
+      <dt>Comments</dt>
+      <!-- Display comments start -->
+      <dd><%= feedback.comments %></dd>
+      <!-- Display comments end -->
+
+      <dt>Attractions</dt>
+      <!-- Display attractions_id start -->
+      <dd><%= feedback.attractions_id %></dd>
+      <!-- Display attractions_id end -->
+
+      <dt>Users</dt>
+      <!-- Display users_id start -->
+      <dd><%= feedback.users_id %></dd>
+      <!-- Display users_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back feedback, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link feedback start -->
+      <div class="col">
+        <%= link_to edit_feedback_url(feedback), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link feedback end -->
+
+      <!-- Delete link feedback start -->
+      <div class="col">
+        <%= link_to feedback, method: :delete, data: { confirm: "Do you really want to delete this feedback?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link feedback end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(feedback.updated_at) %> ago
+  </div>
+</div>
