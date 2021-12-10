@@ -1,6 +1,9 @@
 class Route < ApplicationRecord
   # Direct associations
 
+  belongs_to :transportations,
+             :class_name => "Transportation"
+
   has_many   :attractions,
              :foreign_key => "routes_id",
              :dependent => :destroy
