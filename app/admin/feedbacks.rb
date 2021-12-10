@@ -1,5 +1,7 @@
 ActiveAdmin.register Feedback do
 
+ permit_params :routes_id, :safty_rating, :overall_experience_rating, :comments, :attractions_id, :users_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
