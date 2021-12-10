@@ -11,6 +11,9 @@ class AttractionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :routes,
+             resource: RouteResource
+
   # Indirect associations
 
 end

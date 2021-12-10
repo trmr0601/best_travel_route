@@ -9,6 +9,9 @@ class RouteResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :attractions,
+             foreign_key: :routes_id
+
   has_many   :feedbacks,
              foreign_key: :routes_id
 
