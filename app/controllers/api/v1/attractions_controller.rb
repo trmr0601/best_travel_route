@@ -13,7 +13,7 @@ class Api::V1::AttractionsController < Api::V1::GraphitiController
     attraction = AttractionResource.build(params)
 
     if attraction.save
-      render jsonapi: attraction, status: 201
+      render jsonapi: attraction, status: :created
     else
       render jsonapi_errors: attraction
     end
@@ -33,7 +33,7 @@ class Api::V1::AttractionsController < Api::V1::GraphitiController
     attraction = AttractionResource.find(params)
 
     if attraction.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: attraction
     end

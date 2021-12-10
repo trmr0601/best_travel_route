@@ -13,7 +13,7 @@ class Api::V1::FeedbacksController < Api::V1::GraphitiController
     feedback = FeedbackResource.build(params)
 
     if feedback.save
-      render jsonapi: feedback, status: 201
+      render jsonapi: feedback, status: :created
     else
       render jsonapi_errors: feedback
     end
@@ -33,7 +33,7 @@ class Api::V1::FeedbacksController < Api::V1::GraphitiController
     feedback = FeedbackResource.find(params)
 
     if feedback.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: feedback
     end

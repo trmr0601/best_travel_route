@@ -2,16 +2,16 @@ class Feedback < ApplicationRecord
   # Direct associations
 
   belongs_to :routes,
-             :class_name => "Route"
+             class_name: "Route"
 
   belongs_to :users,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
   has_one    :attraction,
-             :through => :routes,
-             :source => :attractions
+             through: :routes,
+             source: :attractions
 
   # Validations
 
@@ -20,5 +20,4 @@ class Feedback < ApplicationRecord
   def to_s
     routes.to_s
   end
-
 end

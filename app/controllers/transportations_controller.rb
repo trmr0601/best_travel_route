@@ -1,10 +1,10 @@
 class TransportationsController < ApplicationController
-  before_action :set_transportation, only: [:show, :edit, :update, :destroy]
+  before_action :set_transportation, only: %i[show edit update destroy]
 
   # GET /transportations
   def index
     @q = Transportation.ransack(params[:q])
-    @transportations = @q.result(:distinct => true).includes(:routes).page(params[:page]).per(10)
+    @transportations = @q.result(distinct: true).includes(:routes).page(params[:page]).per(10)
   end
 
   # GET /transportations/1
@@ -18,15 +18,15 @@ class TransportationsController < ApplicationController
   end
 
   # GET /transportations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /transportations
   def create
     @transportation = Transportation.new(transportation_params)
 
     if @transportation.save
-      redirect_to @transportation, notice: 'Transportation was successfully created.'
+      redirect_to @transportation,
+                  notice: "Transportation was successfully created."
     else
       render :new
     end
@@ -35,7 +35,8 @@ class TransportationsController < ApplicationController
   # PATCH/PUT /transportations/1
   def update
     if @transportation.update(transportation_params)
-      redirect_to @transportation, notice: 'Transportation was successfully updated.'
+      redirect_to @transportation,
+                  notice: "Transportation was successfully updated."
     else
       render :edit
     end
@@ -44,17 +45,19 @@ class TransportationsController < ApplicationController
   # DELETE /transportations/1
   def destroy
     @transportation.destroy
-    redirect_to transportations_url, notice: 'Transportation was successfully destroyed.'
+    redirect_to transportations_url,
+                notice: "Transportation was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transportation
-      @transportation = Transportation.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def transportation_params
-      params.require(:transportation).permit(:method, :speed)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transportation
+    @transportation = Transportation.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def transportation_params
+    params.require(:transportation).permit(:method, :speed)
+  end
 end

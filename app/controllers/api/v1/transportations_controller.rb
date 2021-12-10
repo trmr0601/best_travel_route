@@ -13,7 +13,7 @@ class Api::V1::TransportationsController < Api::V1::GraphitiController
     transportation = TransportationResource.build(params)
 
     if transportation.save
-      render jsonapi: transportation, status: 201
+      render jsonapi: transportation, status: :created
     else
       render jsonapi_errors: transportation
     end
@@ -33,7 +33,7 @@ class Api::V1::TransportationsController < Api::V1::GraphitiController
     transportation = TransportationResource.find(params)
 
     if transportation.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: transportation
     end

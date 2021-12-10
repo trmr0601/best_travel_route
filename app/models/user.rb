@@ -2,8 +2,8 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :feedbacks,
-             :foreign_key => "users_id",
-             :dependent => :destroy
+             foreign_key: "users_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class User < ApplicationRecord
   def to_s
     name
   end
-
 end

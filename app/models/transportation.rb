@@ -2,8 +2,8 @@ class Transportation < ApplicationRecord
   # Direct associations
 
   has_many   :routes,
-             :foreign_key => "transportations_id",
-             :dependent => :destroy
+             foreign_key: "transportations_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class Transportation < ApplicationRecord
   def to_s
     method
   end
-
 end

@@ -1,15 +1,15 @@
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
+  before_action :set_feedback, only: %i[show edit update destroy]
 
   # GET /feedbacks
   def index
     @q = Feedback.ransack(params[:q])
-    @feedbacks = @q.result(:distinct => true).includes(:users, :routes, :attraction).page(params[:page]).per(10)
+    @feedbacks = @q.result(distinct: true).includes(:users, :routes,
+                                                    :attraction).page(params[:page]).per(10)
   end
 
   # GET /feedbacks/1
-  def show
-  end
+  def show; end
 
   # GET /feedbacks/new
   def new
@@ -17,17 +17,16 @@ class FeedbacksController < ApplicationController
   end
 
   # GET /feedbacks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /feedbacks
   def create
     @feedback = Feedback.new(feedback_params)
 
     if @feedback.save
-      message = 'Feedback was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Feedback was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @feedback, notice: message
       end
@@ -39,7 +38,7 @@ class FeedbacksController < ApplicationController
   # PATCH/PUT /feedbacks/1
   def update
     if @feedback.update(feedback_params)
-      redirect_to @feedback, notice: 'Feedback was successfully updated.'
+      redirect_to @feedback, notice: "Feedback was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,23 @@ class FeedbacksController < ApplicationController
   def destroy
     @feedback.destroy
     message = "Feedback was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to feedbacks_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feedback
-      @feedback = Feedback.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def feedback_params
-      params.require(:feedback).permit(:routes_id, :safty_rating, :overall_experience_rating, :comments, :attractions_id, :users_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_feedback
+    @feedback = Feedback.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def feedback_params
+    params.require(:feedback).permit(:routes_id, :safty_rating,
+                                     :overall_experience_rating, :comments, :attractions_id, :users_id)
+  end
 end

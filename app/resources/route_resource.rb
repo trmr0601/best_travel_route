@@ -19,5 +19,4 @@ class RouteResource < ApplicationResource
              foreign_key: :routes_id
 
   # Indirect associations
-
 end

@@ -11,5 +11,4 @@ class TransportationResource < ApplicationResource
              foreign_key: :transportations_id
 
   # Indirect associations
-
 end

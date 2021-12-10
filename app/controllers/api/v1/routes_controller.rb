@@ -13,7 +13,7 @@ class Api::V1::RoutesController < Api::V1::GraphitiController
     route = RouteResource.build(params)
 
     if route.save
-      render jsonapi: route, status: 201
+      render jsonapi: route, status: :created
     else
       render jsonapi_errors: route
     end
@@ -33,7 +33,7 @@ class Api::V1::RoutesController < Api::V1::GraphitiController
     route = RouteResource.find(params)
 
     if route.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: route
     end
