@@ -7,6 +7,9 @@ class TransportationResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :routes,
+             foreign_key: :transportations_id
+
   # Indirect associations
 
 end

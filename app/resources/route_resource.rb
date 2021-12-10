@@ -9,6 +9,9 @@ class RouteResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :transportations,
+             resource: TransportationResource
+
   has_many   :attractions,
              foreign_key: :routes_id
 
