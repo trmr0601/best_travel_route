@@ -16,7 +16,7 @@
 
     <%= f.label :routes_id %>
     <!-- Input for routes_id start -->
-    <%= f.number_field :routes_id, class: route_class, placeholder: "Enter route" %>
+    <%= f.collection_select :routes_id, Route.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for routes_id end -->
     <% if route_was_invalid %>
       <% feedback.errors.full_messages_for(:route).each do |message| %>
