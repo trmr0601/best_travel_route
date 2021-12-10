@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :feedbacks,
+             foreign_key: :users_id
+
   # Indirect associations
 
 end
