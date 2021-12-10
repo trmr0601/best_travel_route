@@ -1,26 +1,21 @@
 class TransportationsController < ApplicationController
   before_action :set_transportation, only: %i[show edit update destroy]
 
-  # GET /transportations
   def index
     @q = Transportation.ransack(params[:q])
     @transportations = @q.result(distinct: true).includes(:routes).page(params[:page]).per(10)
   end
 
-  # GET /transportations/1
   def show
     @route = Route.new
   end
 
-  # GET /transportations/new
   def new
     @transportation = Transportation.new
   end
 
-  # GET /transportations/1/edit
   def edit; end
 
-  # POST /transportations
   def create
     @transportation = Transportation.new(transportation_params)
 
@@ -32,7 +27,6 @@ class TransportationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /transportations/1
   def update
     if @transportation.update(transportation_params)
       redirect_to @transportation,
@@ -42,7 +36,6 @@ class TransportationsController < ApplicationController
     end
   end
 
-  # DELETE /transportations/1
   def destroy
     @transportation.destroy
     redirect_to transportations_url,
@@ -51,12 +44,10 @@ class TransportationsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_transportation
     @transportation = Transportation.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def transportation_params
     params.require(:transportation).permit(:method, :speed)
   end

@@ -1,28 +1,23 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: %i[show edit update destroy]
 
-  # GET /routes
   def index
     @q = Route.ransack(params[:q])
     @routes = @q.result(distinct: true).includes(:feedbacks, :attractions,
                                                  :transportations).page(params[:page]).per(10)
   end
 
-  # GET /routes/1
   def show
     @attraction = Attraction.new
     @feedback = Feedback.new
   end
 
-  # GET /routes/new
   def new
     @route = Route.new
   end
 
-  # GET /routes/1/edit
   def edit; end
 
-  # POST /routes
   def create
     @route = Route.new(route_params)
 
@@ -38,7 +33,6 @@ class RoutesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /routes/1
   def update
     if @route.update(route_params)
       redirect_to @route, notice: "Route was successfully updated."
@@ -47,7 +41,6 @@ class RoutesController < ApplicationController
     end
   end
 
-  # DELETE /routes/1
   def destroy
     @route.destroy
     message = "Route was successfully deleted."
@@ -60,12 +53,10 @@ class RoutesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_route
     @route = Route.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def route_params
     params.require(:route).permit(:start_point, :end_point, :distance,
                                   :transportations_id)
