@@ -1,0 +1,161 @@
+<% was_validated = attraction.errors.any? %>
+
+<%= form_with(model: attraction, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for attraction_name start -->
+  <div class="form-group">
+    <% attraction_name_class = "form-control" %>
+    <% attraction_name_was_invalid = attraction.errors.include?(:attraction_name) %>
+
+    <% if was_validated %>
+      <% if attraction_name_was_invalid %>
+        <% attraction_name_class << " is-invalid" %>
+      <% else %>
+        <% attraction_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :attraction_name %>
+    <!-- Input for attraction_name start -->
+    <%= f.text_field :attraction_name, class: attraction_name_class, placeholder: "Enter attraction name" %>
+    <!-- Input for attraction_name end -->
+    <% if attraction_name_was_invalid %>
+      <% attraction.errors.full_messages_for(:attraction_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for attraction_name end -->
+  <!-- Label and input for attraction_type start -->
+  <div class="form-group">
+    <% attraction_type_class = "form-control" %>
+    <% attraction_type_was_invalid = attraction.errors.include?(:attraction_type) %>
+
+    <% if was_validated %>
+      <% if attraction_type_was_invalid %>
+        <% attraction_type_class << " is-invalid" %>
+      <% else %>
+        <% attraction_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :attraction_type %>
+    <!-- Input for attraction_type start -->
+    <%= f.text_field :attraction_type, class: attraction_type_class, placeholder: "Enter attraction type" %>
+    <!-- Input for attraction_type end -->
+    <% if attraction_type_was_invalid %>
+      <% attraction.errors.full_messages_for(:attraction_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for attraction_type end -->
+  <!-- Label and input for attraction_description start -->
+  <div class="form-group">
+    <% attraction_description_class = "form-control" %>
+    <% attraction_description_was_invalid = attraction.errors.include?(:attraction_description) %>
+
+    <% if was_validated %>
+      <% if attraction_description_was_invalid %>
+        <% attraction_description_class << " is-invalid" %>
+      <% else %>
+        <% attraction_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :attraction_description %>
+    <!-- Input for attraction_description start -->
+    <%= f.text_field :attraction_description, class: attraction_description_class, placeholder: "Enter attraction description" %>
+    <!-- Input for attraction_description end -->
+    <% if attraction_description_was_invalid %>
+      <% attraction.errors.full_messages_for(:attraction_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for attraction_description end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = attraction.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% attraction.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for cost start -->
+  <div class="form-group">
+    <% cost_class = "form-control" %>
+    <% cost_was_invalid = attraction.errors.include?(:cost) %>
+
+    <% if was_validated %>
+      <% if cost_was_invalid %>
+        <% cost_class << " is-invalid" %>
+      <% else %>
+        <% cost_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :cost %>
+    <!-- Input for cost start -->
+    <%= f.text_field :cost, class: cost_class, placeholder: "Enter cost" %>
+    <!-- Input for cost end -->
+    <% if cost_was_invalid %>
+      <% attraction.errors.full_messages_for(:cost).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for cost end -->
+  <!-- Label and input for routes_id start -->
+  <div class="form-group">
+    <% route_class = "form-control" %>
+    <% route_was_invalid = attraction.errors.include?(:route) %>
+
+    <% if was_validated %>
+      <% if route_was_invalid %>
+        <% route_class << " is-invalid" %>
+      <% else %>
+        <% route_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :routes_id %>
+    <!-- Input for routes_id start -->
+    <%= f.number_field :routes_id, class: route_class, placeholder: "Enter route" %>
+    <!-- Input for routes_id end -->
+    <% if route_was_invalid %>
+      <% attraction.errors.full_messages_for(:route).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for routes_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

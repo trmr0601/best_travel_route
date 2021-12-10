@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Attraction #<%= attraction.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Attraction name</dt>
+      <!-- Display attraction_name start -->
+      <dd><%= attraction.attraction_name %></dd>
+      <!-- Display attraction_name end -->
+
+      <dt>Attraction type</dt>
+      <!-- Display attraction_type start -->
+      <dd><%= attraction.attraction_type %></dd>
+      <!-- Display attraction_type end -->
+
+      <dt>Attraction description</dt>
+      <!-- Display attraction_description start -->
+      <dd><%= attraction.attraction_description %></dd>
+      <!-- Display attraction_description end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= attraction.location %></dd>
+      <!-- Display location end -->
+
+      <dt>Cost</dt>
+      <!-- Display cost start -->
+      <dd><%= attraction.cost %></dd>
+      <!-- Display cost end -->
+
+      <dt>Routes</dt>
+      <!-- Display routes_id start -->
+      <dd><%= attraction.routes_id %></dd>
+      <!-- Display routes_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back attraction, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link attraction start -->
+      <div class="col">
+        <%= link_to edit_attraction_url(attraction), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link attraction end -->
+
+      <!-- Delete link attraction start -->
+      <div class="col">
+        <%= link_to attraction, method: :delete, data: { confirm: "Do you really want to delete this attraction?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link attraction end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(attraction.updated_at) %> ago
+  </div>
+</div>
