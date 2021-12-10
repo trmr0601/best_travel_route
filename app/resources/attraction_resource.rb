@@ -16,4 +16,5 @@ class AttractionResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :feedback
 end

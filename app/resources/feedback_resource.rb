@@ -19,4 +19,5 @@ class FeedbackResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :attraction
 end
