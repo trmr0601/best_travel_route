@@ -3,7 +3,8 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks
   def index
-    @feedbacks = Feedback.page(params[:page]).per(10)
+    @q = Feedback.ransack(params[:q])
+    @feedbacks = @q.result(:distinct => true).includes(:users, :routes, :attraction).page(params[:page]).per(10)
   end
 
   # GET /feedbacks/1

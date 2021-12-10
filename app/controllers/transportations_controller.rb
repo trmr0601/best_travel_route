@@ -3,7 +3,8 @@ class TransportationsController < ApplicationController
 
   # GET /transportations
   def index
-    @transportations = Transportation.page(params[:page]).per(10)
+    @q = Transportation.ransack(params[:q])
+    @transportations = @q.result(:distinct => true).includes(:routes).page(params[:page]).per(10)
   end
 
   # GET /transportations/1

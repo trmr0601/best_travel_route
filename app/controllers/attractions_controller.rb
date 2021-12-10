@@ -3,7 +3,8 @@ class AttractionsController < ApplicationController
 
   # GET /attractions
   def index
-    @attractions = Attraction.page(params[:page]).per(10)
+    @q = Attraction.ransack(params[:q])
+    @attractions = @q.result(:distinct => true).includes(:routes, :feedback).page(params[:page]).per(10)
   end
 
   # GET /attractions/1
