@@ -1,62 +1,36 @@
-<!-- Form attraction start -->
 <%= form_with(model: @attraction, local: true) do |f| %>
-<!-- Form attraction end -->
 
-  <!-- Label and input for attraction_name start -->
   <div class="form-group">
     <%= f.label :attraction_name %>
 
-    <!-- Input for attraction_name start -->
     <%= f.text_field :attraction_name, class: "form-control" %>
-    <!-- Input for attraction_name end -->
   </div>
-  <!-- Label and input for attraction_name end -->
 
-  <!-- Label and input for attraction_type start -->
   <div class="form-group">
     <%= f.label :attraction_type %>
 
-    <!-- Input for attraction_type start -->
     <%= f.text_field :attraction_type, class: "form-control" %>
-    <!-- Input for attraction_type end -->
   </div>
-  <!-- Label and input for attraction_type end -->
 
-  <!-- Label and input for attraction_description start -->
   <div class="form-group">
     <%= f.label :attraction_description %>
 
-    <!-- Input for attraction_description start -->
     <%= f.text_field :attraction_description, class: "form-control" %>
-    <!-- Input for attraction_description end -->
   </div>
-  <!-- Label and input for attraction_description end -->
 
-  <!-- Label and input for location start -->
   <div class="form-group">
     <%= f.label :location %>
 
-    <!-- Input for location start -->
     <%= f.text_field :location, class: "form-control" %>
-    <!-- Input for location end -->
   </div>
-  <!-- Label and input for location end -->
 
-  <!-- Label and input for cost start -->
   <div class="form-group">
     <%= f.label :cost %>
 
-    <!-- Input for cost start -->
     <%= f.text_field :cost, class: "form-control" %>
-    <!-- Input for cost end -->
   </div>
-  <!-- Label and input for cost end -->
 
-  <!-- Label and input for routes_id start -->
-  <!-- Input for routes_id start -->
   <%= f.hidden_field :routes_id, value: @route.id %>
-  <!-- Input for routes_id end -->
-  <!-- Label and input for routes_id end -->
 
   <%= f.submit "Create attraction", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

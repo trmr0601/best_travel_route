@@ -1,7 +1,6 @@
 <% was_validated = transportation.errors.any? %>
 
 <%= form_with(model: transportation, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for method start -->
   <div class="form-group">
     <% method_class = "form-control" %>
     <% method_was_invalid = transportation.errors.include?(:method) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :method %>
-    <!-- Input for method start -->
     <%= f.text_field :method, class: method_class, placeholder: "Enter method" %>
-    <!-- Input for method end -->
     <% if method_was_invalid %>
       <% transportation.errors.full_messages_for(:method).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for method end -->
-  <!-- Label and input for speed start -->
   <div class="form-group">
     <% speed_class = "form-control" %>
     <% speed_was_invalid = transportation.errors.include?(:speed) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :speed %>
-    <!-- Input for speed start -->
     <%= f.text_field :speed, class: speed_class, placeholder: "Enter speed" %>
-    <!-- Input for speed end -->
     <% if speed_was_invalid %>
       <% transportation.errors.full_messages_for(:speed).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for speed end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

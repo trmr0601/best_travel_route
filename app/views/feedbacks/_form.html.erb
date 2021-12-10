@@ -1,7 +1,6 @@
 <% was_validated = feedback.errors.any? %>
 
 <%= form_with(model: feedback, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for routes_id start -->
   <div class="form-group">
     <% route_class = "form-control" %>
     <% route_was_invalid = feedback.errors.include?(:route) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :routes_id %>
-    <!-- Input for routes_id start -->
     <%= f.collection_select :routes_id, Route.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for routes_id end -->
     <% if route_was_invalid %>
       <% feedback.errors.full_messages_for(:route).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for routes_id end -->
-  <!-- Label and input for safty_rating start -->
   <div class="form-group">
     <% safty_rating_class = "form-control" %>
     <% safty_rating_was_invalid = feedback.errors.include?(:safty_rating) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :safty_rating %>
-    <!-- Input for safty_rating start -->
     <%= f.text_field :safty_rating, class: safty_rating_class, placeholder: "Enter safty rating" %>
-    <!-- Input for safty_rating end -->
     <% if safty_rating_was_invalid %>
       <% feedback.errors.full_messages_for(:safty_rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for safty_rating end -->
-  <!-- Label and input for overall_experience_rating start -->
   <div class="form-group">
     <% overall_experience_rating_class = "form-control" %>
     <% overall_experience_rating_was_invalid = feedback.errors.include?(:overall_experience_rating) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :overall_experience_rating %>
-    <!-- Input for overall_experience_rating start -->
     <%= f.text_field :overall_experience_rating, class: overall_experience_rating_class, placeholder: "Enter overall experience rating" %>
-    <!-- Input for overall_experience_rating end -->
     <% if overall_experience_rating_was_invalid %>
       <% feedback.errors.full_messages_for(:overall_experience_rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for overall_experience_rating end -->
-  <!-- Label and input for comments start -->
   <div class="form-group">
     <% comment_class = "form-control" %>
     <% comment_was_invalid = feedback.errors.include?(:comment) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :comments %>
-    <!-- Input for comments start -->
     <%= f.text_field :comments, class: comment_class, placeholder: "Enter comment" %>
-    <!-- Input for comments end -->
     <% if comment_was_invalid %>
       <% feedback.errors.full_messages_for(:comment).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for comments end -->
-  <!-- Label and input for attractions_id start -->
   <div class="form-group">
     <% attraction_class = "form-control" %>
     <% attraction_was_invalid = feedback.errors.include?(:attraction) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :attractions_id %>
-    <!-- Input for attractions_id start -->
     <%= f.number_field :attractions_id, class: attraction_class, placeholder: "Enter attraction" %>
-    <!-- Input for attractions_id end -->
     <% if attraction_was_invalid %>
       <% feedback.errors.full_messages_for(:attraction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attractions_id end -->
-  <!-- Label and input for users_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = feedback.errors.include?(:user) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :users_id %>
-    <!-- Input for users_id start -->
     <%= f.collection_select :users_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for users_id end -->
     <% if user_was_invalid %>
       <% feedback.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for users_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

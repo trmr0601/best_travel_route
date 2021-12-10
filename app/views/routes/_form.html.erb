@@ -1,7 +1,6 @@
 <% was_validated = route.errors.any? %>
 
 <%= form_with(model: route, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for start_point start -->
   <div class="form-group">
     <% start_point_class = "form-control" %>
     <% start_point_was_invalid = route.errors.include?(:start_point) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :start_point %>
-    <!-- Input for start_point start -->
     <%= f.text_field :start_point, class: start_point_class, placeholder: "Enter start point" %>
-    <!-- Input for start_point end -->
     <% if start_point_was_invalid %>
       <% route.errors.full_messages_for(:start_point).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for start_point end -->
-  <!-- Label and input for end_point start -->
   <div class="form-group">
     <% end_point_class = "form-control" %>
     <% end_point_was_invalid = route.errors.include?(:end_point) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :end_point %>
-    <!-- Input for end_point start -->
     <%= f.text_field :end_point, class: end_point_class, placeholder: "Enter end point" %>
-    <!-- Input for end_point end -->
     <% if end_point_was_invalid %>
       <% route.errors.full_messages_for(:end_point).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for end_point end -->
-  <!-- Label and input for distance start -->
   <div class="form-group">
     <% distance_class = "form-control" %>
     <% distance_was_invalid = route.errors.include?(:distance) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :distance %>
-    <!-- Input for distance start -->
     <%= f.text_field :distance, class: distance_class, placeholder: "Enter distance" %>
-    <!-- Input for distance end -->
     <% if distance_was_invalid %>
       <% route.errors.full_messages_for(:distance).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for distance end -->
-  <!-- Label and input for transportations_id start -->
   <div class="form-group">
     <% transportation_class = "form-control" %>
     <% transportation_was_invalid = route.errors.include?(:transportation) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :transportations_id %>
-    <!-- Input for transportations_id start -->
     <%= f.collection_select :transportations_id, Transportation.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for transportations_id end -->
     <% if transportation_was_invalid %>
       <% route.errors.full_messages_for(:transportation).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for transportations_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

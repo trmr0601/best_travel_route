@@ -6,28 +6,20 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Start point</dt>
-      <!-- Display start_point start -->
       <dd><%= route.start_point %></dd>
-      <!-- Display start_point end -->
 
       <dt>End point</dt>
-      <!-- Display end_point start -->
       <dd><%= route.end_point %></dd>
-      <!-- Display end_point end -->
 
       <dt>Distance</dt>
-      <!-- Display distance start -->
       <dd><%= route.distance %></dd>
-      <!-- Display distance end -->
 
       <dt>Transportations</dt>
-      <!-- Display transportations_id start -->
       <dd>
         <% if @route.transportations.present? %>
           <%= link_to route.transportations, route.transportations %>
         <% end %>
       </dd>
-      <!-- Display transportations_id end -->
 
     </dl>
 
@@ -36,21 +28,17 @@
         <%= link_to_show_or_back route, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link route start -->
       <div class="col">
         <%= link_to edit_route_url(route), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link route end -->
 
-      <!-- Delete link route start -->
       <div class="col">
         <%= link_to route, method: :delete, data: { confirm: "Do you really want to delete this route?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link route end -->
     </div>
   </div>
 
